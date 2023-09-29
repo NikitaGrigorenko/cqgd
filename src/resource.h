@@ -99,31 +99,31 @@ namespace cg
 
 	struct unsigned_color
 	{
-//		static unsigned_color from_color(const color& color)
-//		{
-//			return unsigned_color{
-//					static_cast<uint8_t>(std::clamp(color.r*255.f, 0.f, 255.f)),
-//					static_cast<uint8_t>(std::clamp(color.g*255.f, 0.f, 255.f)),
-//					static_cast<uint8_t>(std::clamp(color.b*255.f, 0.f, 255.f)),
-//			};
-//		};
-//		static unsigned_color from_float3(const float3& color)
-//		{
-//			float3 clamped = clamp(255.f * color, 0.f, 255.f);
-//			return unsigned_color{
-//							static_cast<uint8_t>(clamped.x),
-//							static_cast<uint8_t>(clamped.y),
-//							static_cast<uint8_t>(clamped.z),
-//					};
-//		};
-//		float3 to_float3() const
-//		{
-//			return float3{
-//					static_cast<float>(r),
-//					static_cast<float>(g),
-//					static_cast<float>(b)
-//				   } / 255.f;
-//		};
+		static unsigned_color from_color(const color& color)
+		{
+			return unsigned_color{
+					static_cast<uint8_t>(std::clamp(color.r*255.f, 0.f, 255.f)),
+					static_cast<uint8_t>(std::clamp(color.g*255.f, 0.f, 255.f)),
+					static_cast<uint8_t>(std::clamp(color.b*255.f, 0.f, 255.f)),
+			};
+		};
+		static unsigned_color from_float3(const float3& color)
+		{
+			float3 clamped = clamp(255.f * color, 0.f, 255.f);
+			return unsigned_color{
+							static_cast<uint8_t>(clamped.x),
+							static_cast<uint8_t>(clamped.y),
+							static_cast<uint8_t>(clamped.z),
+					};
+		};
+		float3 to_float3() const
+		{
+			return float3{
+					static_cast<float>(r),
+					static_cast<float>(g),
+					static_cast<float>(b)
+				   } / 255.f;
+		};
 		uint8_t r;
 		uint8_t g;
 		uint8_t b;
