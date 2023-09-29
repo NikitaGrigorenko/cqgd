@@ -23,7 +23,7 @@ void cg::renderer::rasterization_renderer::render()
 	auto stop = std::chrono::high_resolution_clock::now();
 	std::chrono::duration<float, std::milli> clear_duration = stop-start;
 	std::cout<<"Clearing took "<<clear_duration.count()<<" ms\n";
-//	cg::utils::save_resource(*render_target, settings->result_path);
+	utils::save_resource(*render_target, settings->result_path);
 
 	// TODO Lab: 1.04 Implement `vertex_shader` lambda for the instance of `cg::renderer::rasterizer`
 	// TODO Lab: 1.05 Implement `pixel_shader` lambda for the instance of `cg::renderer::rasterizer`
