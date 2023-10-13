@@ -36,7 +36,6 @@ void cg::utils::save_resource(cg::resource<cg::unsigned_color>& render_target, c
 	view_command.append(filepath.string());
 
 	std::system(view_command.c_str());
-
 //	std::system(view_command(filepath).c_str());
 }
 
