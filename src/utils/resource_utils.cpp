@@ -13,12 +13,12 @@ std::string view_command(const std::filesystem::path& path)
 	return std::string("open ").append(path.string());
 #endif
 #ifdef __WINDOWS__
-	return std::string("start ").append(path.string());
+	return std::string("open ").append(path.string());
 #endif
 	return path.string();
 }
 
-void cg::utils::save_resource(cg::resource<cg::unsigned_color>& render_target, const std::filesystem::path& filepath)
+void cg::utils::save_resource(cg::resource<cg::unsigned_color>& render_target, const std::filesystem::path filepath)
 {
 	int width = static_cast<int>(render_target.get_stride());
 	int height = static_cast<int>(render_target.get_number_of_elements()) / width;
