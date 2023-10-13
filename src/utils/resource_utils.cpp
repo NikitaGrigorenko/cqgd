@@ -7,16 +7,18 @@
 
 #include <stb_image_write.h>
 
-std::string view_command(const std::filesystem::path& path)
-{
-#ifdef __APPLE__
-	return std::string("open ").append(path.string());
-#endif
-#ifdef __WINDOWS__
-	return std::string("open ").append(path.string());
-#endif
-	return path.string();
-}
+//std::string view_command(const std::filesystem::path& path)
+//{
+//#ifdef __APPLE__
+//	return std::string("open ").append(path.string());
+//#endif
+//#ifdef __WINDOWS__
+//	return std::string("open ").append(path.string());
+//#endif
+//	return path.string();
+//}
+
+using namespace cg::utils;
 
 void cg::utils::save_resource(cg::resource<cg::unsigned_color>& render_target, const std::filesystem::path filepath)
 {
@@ -30,6 +32,11 @@ void cg::utils::save_resource(cg::resource<cg::unsigned_color>& render_target, c
 	if (result != 1)
 		THROW_ERROR("Can't save the resource");
 
-	std::system(view_command(filepath).c_str());
+	std::string view_command("open ");
+	view_command.append(filepath.string());
+
+	std::system(view_command.c_str());
+
+//	std::system(view_command(filepath).c_str());
 }
 

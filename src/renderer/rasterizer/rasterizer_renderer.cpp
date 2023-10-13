@@ -68,7 +68,7 @@ void cg::renderer::rasterization_renderer::render()
 	std::chrono::duration<float, std::milli> rendering_duration = stop - start;
 	std::cout << "Rendering took " << rendering_duration.count() << "ms\n" ;
 
-	utils::save_resource(*render_target, settings->result_path);
+	cg::utils::save_resource(*render_target, settings->result_path);
 	std::cout << "Save resources done!" << std::endl;
 }
 
