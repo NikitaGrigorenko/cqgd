@@ -76,19 +76,9 @@ void cg::renderer::ray_tracing_renderer::render()
 		return payload;
 	};
 
-//	raytracer->build_acceleration_structure();
-//	raytracer->clear_render_target({0, 0, 0});
+	raytracer->build_acceleration_structure();
+	raytracer->clear_render_target({0, 0, 0});
 
-	shadow_raytracer->acceleration_structures =
-			raytracer ->acceleration_structures;
-	shadow_raytracer->miss_shader = [](const ray& ray) {
-		payload payload{};
-		payload.t = -1.f;
-		return payload;
-	};
-	shadow_raytracer->any_hit_shader= [](const ray& ray, payload& payload, const triangle <cg::vertex>& triangle){
-		return payload;
-	};
 
 	auto start = std::chrono::high_resolution_clock::now();
 	raytracer->ray_generation(
